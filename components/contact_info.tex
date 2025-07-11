@@ -1,0 +1,20 @@
+% Contact Info Component
+% Usage: component('contact_info', name='John Doe', company='ABC Corp', address='123 Main St', phone='555-1234', email='john@example.com')
+
+\begin{tabular}{@{}l@{}}
+    \BLOCK{if name}
+    \textbf{\VAR{name}} \\
+    \BLOCK{endif}
+    \BLOCK{if company}
+    \VAR{company} \\
+    \BLOCK{endif}
+    \BLOCK{if address}
+    \VAR{address} \\
+    \BLOCK{endif}
+    \BLOCK{if phone}
+    Phone: \VAR{phone} \\
+    \BLOCK{endif}
+    \BLOCK{if email}
+    Email: \VAR{email} \\
+    \BLOCK{endif}
+\end{tabular} 

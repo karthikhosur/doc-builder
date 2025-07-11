@@ -1,0 +1,13 @@
+% Quote Component
+% Usage: component('quote', text='Your quote here', author='Author Name')
+
+\begin{center}
+    \begin{minipage}{0.8\textwidth}
+        \centering
+        \large\textit{"\VAR{text}"}
+        \BLOCK{if author}
+        \\[0.5cm]
+        \normalsize--- \VAR{author}
+        \BLOCK{endif}
+    \end{minipage}
+\end{center}

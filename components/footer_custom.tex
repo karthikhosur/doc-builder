@@ -1,0 +1,9 @@
+% Custom Footer Component
+% Usage: \VAR{component('footer_custom', text='Confidential', page_number=True)}
+
+\vfill
+\begin{center}
+    \small
+    \BLOCK{if text}\VAR{text}\BLOCK{endif}
+    \BLOCK{if page_number}\quad --- Page \thepage{} ---\BLOCK{endif}
+\end{center}

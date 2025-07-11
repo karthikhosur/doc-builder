@@ -1,0 +1,28 @@
+% Professional Company Footer Component
+% Usage: component('footer_company', company_name='Company Name', footer_text='Optional footer text')
+
+% Footer with line, company name, and page numbers
+\vfill
+\noindent\hrulefill
+\vspace{0.2cm}
+
+\noindent
+\begin{minipage}[t]{0.5\textwidth}
+\raggedright
+\footnotesize
+\textbf{\VAR{company_name}}
+\end{minipage}%
+\hfill%
+\begin{minipage}[t]{0.5\textwidth}
+\raggedleft
+\footnotesize
+Page \thepage\ of \pageref{LastPage}
+\end{minipage}
+
+\BLOCK{if footer_text}
+\vspace{0.1cm}
+\begin{center}
+\tiny
+\VAR{footer_text}
+\end{center}
+\BLOCK{endif} 

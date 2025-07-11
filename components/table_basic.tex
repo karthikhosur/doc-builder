@@ -1,0 +1,16 @@
+% Basic Table Component
+% Usage: component('table_basic', headers=['Col1', 'Col2'], rows=[['A', 'B'], ['C', 'D']])
+
+\begin{table}[h]
+    \centering
+    \begin{tabular}{\BLOCK{for header in headers}|l\BLOCK{endfor}|}
+        \hline
+        \BLOCK{for header in headers}\VAR{header} \BLOCK{if not loop.last}&\BLOCK{endif}\BLOCK{endfor} \\
+        \hline
+        \BLOCK{for row in rows}
+        \BLOCK{for cell in row}\VAR{cell} \BLOCK{if not loop.last}&\BLOCK{endif}\BLOCK{endfor} \\
+        \BLOCK{endfor}
+        \hline
+    \end{tabular}
+    \BLOCK{if caption}\caption{\VAR{caption}}\BLOCK{endif}
+\end{table} 

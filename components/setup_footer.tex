@@ -1,0 +1,14 @@
+% Footer Setup Component
+% Usage: component('setup_footer', company_name='Company Name', footer_text='Optional footer text')
+
+% Setup fancy headers and footers with better spacing
+\pagestyle{fancy}
+\fancyhf{} % Clear all headers and footers
+\renewcommand{\headrulewidth}{0pt} % No header rule
+\renewcommand{\footrulewidth}{0.4pt} % Footer rule
+\setlength{\footskip}{40pt} % Increase footer space
+\fancyfoot[L]{\footnotesize\textbf{\VAR{company_name}}}
+\fancyfoot[R]{\footnotesize Page \thepage\ of \pageref{LastPage}}
+\BLOCK{if footer_text}
+\fancyfoot[C]{\parbox{0.8\textwidth}{\centering\tiny \VAR{footer_text}}}
+\BLOCK{endif} 

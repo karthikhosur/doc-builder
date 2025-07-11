@@ -1,0 +1,30 @@
+{
+  "company": {
+    "name": "TechCorp Solutions",
+    "address": "123 Business Drive\\\\Suite 100\\\\Tech City, TC 12345",
+    "phone": "(555) 123-4567",
+    "email": "billing@techcorp.com",
+    "footer_text": "This invoice is confidential. Please remit payment within 30 days."
+  },
+  "client": {
+    "name": "John Smith",
+    "company": "Smith Enterprises",
+    "address": "456 Client Street\\\\Business Park\\\\Client City, CC 67890",
+    "email": "john@smithenterprises.com"
+  },
+  "invoice": {
+    "number": "INV-2024-001",
+    "date": "January 15, 2024",
+    "due_date": "February 15, 2024",
+    "items": [
+      ["Web Development", "40", "$150.00", "$6,000.00"],
+      ["Database Design", "20", "$175.00", "$3,500.00"],
+      ["Testing & QA", "10", "$125.00", "$1,250.00"],
+      ["Project Management", "15", "$200.00", "$3,000.00"]
+    ],
+    "subtotal": 13750.00,
+    "tax": 1237.50,
+    "total": 14987.50,
+    "terms": "Payment is due within 30 days. Please include invoice number with payment."
+  }
+} 

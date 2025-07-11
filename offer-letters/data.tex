@@ -1,0 +1,276 @@
+\documentclass[a4paper,8pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[a4paper,top=1cm,bottom=2cm,left=1.5cm,right=1.5cm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Arial}
+\usepackage{booktabs}
+\usepackage{tcolorbox}
+\usepackage{graphicx}
+\usepackage{enumitem}
+\usepackage{adjustbox}
+\usepackage{array}
+\usepackage{tikz}
+\usepackage{lastpage}
+\usepackage{fancyhdr}
+
+\begin{document}
+
+% Setup footer on all pages
+% Footer Setup Component
+% Usage: component('setup_footer', company_name='Company Name', footer_text='Optional footer text')
+
+% Setup fancy headers and footers with better spacing
+\pagestyle{fancy}
+\fancyhf{} % Clear all headers and footers
+\renewcommand{\headrulewidth}{0pt} % No header rule
+\renewcommand{\footrulewidth}{0.4pt} % Footer rule
+\setlength{\footskip}{40pt} % Increase footer space
+\fancyfoot[L]{\footnotesize\textbf{ManpowerGroup Services India Pvt Ltd.}}
+\fancyfoot[R]{\footnotesize Page \thepage\ of \pageref{LastPage}}
+ 
+
+% Company header with logo
+% Professional Company Header with Logo Component
+% Usage: component('header_company_logo', company_name='Company Name', address='Address', cin='CIN Number', phone='Phone', website='Website', logo_path='logo.png', date='Date')
+
+% Header with adjustbox for precise alignment
+\noindent
+\adjustbox{valign=T}{\begin{minipage}{0.3\textwidth}
+
+\includegraphics[width=\linewidth,height=3.5cm,keepaspectratio]{resources/mpg-logo.jpg}
+
+\end{minipage}}%
+\hfill%
+\adjustbox{valign=T}{\begin{minipage}{0.65\textwidth}
+\raggedleft
+\textbf{\normalsize ManpowerGroup Services India Pvt Ltd.}\\[0.1cm]
+\small
+
+Metro Pillar Number 98, Vatika City Point, 6th Floor,\\Mehrauli-Gurgaon Rd, Sector 25,\\Gurugram, Haryana 122002\\[0.1cm]
+
+
+CIN: U74910DL1997PTC085591\\[0.08cm]
+
+
+Tel: +91 – 124 - 6795400\\[0.08cm]
+
+
+www.manpowergroup.com\\[0.08cm]
+
+
+\vspace{0.15cm}
+\textbf{Date: January 20, 2024}
+
+\end{minipage}}
+
+% Professional separator line
+\vspace{0.1cm}
+\noindent\hrulefill
+\vspace{0.2cm}
+
+% Candidate information
+% Contact Info Component
+% Usage: component('contact_info', name='John Doe', company='ABC Corp', address='123 Main St', phone='555-1234', email='john@example.com')
+
+\begin{tabular}{@{}l@{}}
+    
+    \textbf{Sarah Johnson} \\
+    
+    
+    
+    456 Residential Lane\\Apartment 2B\\Mountain View, CA 94041 \\
+    
+    
+    
+    Email: sarah.johnson@email.com \\
+    
+\end{tabular} 
+
+\vspace{0.2cm}
+
+% Subject line
+\textbf{Subject: Job Offer - Senior Software Engineer}
+
+\vspace{0.4cm}
+
+% Salutation
+Dear Sarah Johnson,
+
+\vspace{0.4cm}
+
+% Opening paragraph
+We are pleased to offer you the position of \textbf{Senior Software Engineer} in our Engineering department at ManpowerGroup Services India Pvt Ltd.. We were impressed with your qualifications and believe you will be a valuable addition to our team.
+
+\vspace{0.4cm}
+
+% Position details section
+% Section Box Component
+% Usage: component('section_box', title='Important Note', content='This is important information.', color='blue')
+
+\begin{tcolorbox}[
+    colback=blue!5!white,
+    colframe=blue!75!black,
+    title=Position Details,
+    fonttitle=\bfseries
+]
+
+\end{tcolorbox} 
+
+\begin{itemize}[leftmargin=20pt]
+    \item \textbf{Position:} Senior Software Engineer
+    \item \textbf{Department:} Engineering
+    \item \textbf{Reporting to:} Michael Chen, Engineering Manager
+    \item \textbf{Start Date:} February 15, 2024
+    \item \textbf{Work Location:} Hybrid (3 days in office, 2 days remote)
+    \item \textbf{Employment Type:} Full-time, Exempt
+\end{itemize}
+
+\vspace{0.4cm}
+
+% Compensation section
+% Section Box Component
+% Usage: component('section_box', title='Important Note', content='This is important information.', color='blue')
+
+\begin{tcolorbox}[
+    colback=green!5!white,
+    colframe=green!75!black,
+    title=Compensation \& Benefits,
+    fonttitle=\bfseries
+]
+
+\end{tcolorbox} 
+
+\begin{itemize}[leftmargin=20pt]
+    \item \textbf{Annual Salary:} \$1,450,000.00
+    \item \textbf{Pay Frequency:} Monthly
+    
+    \item \textbf{Annual Bonus:} Performance-based annual bonus up to 20% of base salary
+    
+    
+    \item \textbf{Equity:} Stock option grant as per company equity program
+    
+    \item \textbf{Benefits:} Medical, dental, vision insurance, Provident Fund, life insurance, group medical insurance
+    
+    \item \textbf{Vacation:} 21 days paid vacation plus company holidays and personal days
+    
+\end{itemize}
+
+\vspace{0.4cm}
+
+% Terms and conditions
+\section{Terms and Conditions}
+
+
+This offer is contingent upon successful completion of background check and verification of your eligibility to work in India.
+
+\vspace{0.25cm}
+
+Your employment with ManpowerGroup Services India Pvt Ltd. will be governed by the terms of employment as per Indian labour laws and company policies.
+
+\vspace{0.25cm}
+
+You will be required to sign our standard Confidentiality and Invention Assignment Agreement as a condition of employment.
+
+\vspace{0.25cm}
+
+This position requires compliance with our code of conduct and all company policies as outlined in the employee handbook.
+
+\vspace{0.25cm}
+
+You agree to dedicate your full professional time and attention to your duties at ManpowerGroup Services India Pvt Ltd. during your employment.
+
+\vspace{0.25cm}
+
+The employment is subject to satisfactory medical examination and verification of documents.
+
+\vspace{0.25cm}
+
+
+\vspace{0.4cm}
+
+% Next steps
+% Section Box Component
+% Usage: component('section_box', title='Important Note', content='This is important information.', color='blue')
+
+\begin{tcolorbox}[
+    colback=orange!5!white,
+    colframe=orange!75!black,
+    title=Next Steps,
+    fonttitle=\bfseries
+]
+Please review this offer carefully. We understand this is an important decision and encourage you to take the time you need. We would appreciate your response by January 27, 2024.
+\end{tcolorbox} 
+
+\vspace{0.4cm}
+
+% Acceptance instructions
+\textbf{To accept this offer:}
+% Numbered List Component
+% Usage: component('numbered_list', items=['First step', 'Second step', 'Third step'])
+ 
+\begin{enumerate}
+    
+    \item Sign and return this offer letter
+    
+    \item Complete and return the attached employment forms
+    
+    \item Provide necessary documents for verification
+    
+    \item Schedule your first day with HR at hr@manpowergroup.com
+    
+    \item Confirm your start date and any questions about onboarding
+    
+\end{enumerate} 
+
+\vspace{0.4cm}
+
+% Closing
+We are excited about the possibility of you joining our team and look forward to your positive response. If you have any questions regarding this offer, please don't hesitate to contact me.
+
+\vspace{0.4cm}
+
+Sincerely,
+
+% Signature block
+% Signature Block Component
+% Usage: component('signature_block', name='John Doe', title='Manager', signature_image='signature.png', date='2024-01-01')
+
+\vspace{2cm}
+\begin{minipage}[t]{0.45\textwidth}
+    \raggedright
+    \textbf{Signature:} \\[0.5cm]
+    
+    \rule{5cm}{0.5pt} \\[0.3cm]
+    
+    Priya Sharma \\
+    
+    Senior Manager - Human Resources \\
+    
+\end{minipage}
+\hfill
+\begin{minipage}[t]{0.45\textwidth}
+    \raggedleft
+    \textbf{Date:} \\[0.5cm]
+    
+    January 20, 2024
+    
+\end{minipage} 
+
+\vspace{0.4cm}
+
+% Acceptance section
+\hrule
+\vspace{0.4cm}
+
+\textbf{OFFER ACCEPTANCE}
+
+I, Sarah Johnson, accept the above offer of employment with ManpowerGroup Services India Pvt Ltd. under the terms and conditions stated.
+
+\vspace{1.2cm}
+
+\begin{tabular}{ll}
+\rule{6cm}{0.5pt} & \rule{3cm}{0.5pt} \\
+Candidate Signature & Date \\
+\end{tabular}
+
+\end{document} 

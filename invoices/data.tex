@@ -1,0 +1,125 @@
+\documentclass[a4paper,11pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[a4paper,top=1cm,bottom=2cm,left=1.5cm,right=1.5cm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Arial}
+\usepackage{booktabs}
+\usepackage{tcolorbox}
+\usepackage{graphicx}
+\usepackage{lastpage}
+\usepackage{fancyhdr}
+
+\begin{document}
+
+% Setup footer on all pages
+% Footer Setup Component
+% Usage: component('setup_footer', company_name='Company Name', footer_text='Optional footer text')
+
+% Setup fancy headers and footers with better spacing
+\pagestyle{fancy}
+\fancyhf{} % Clear all headers and footers
+\renewcommand{\headrulewidth}{0pt} % No header rule
+\renewcommand{\footrulewidth}{0.4pt} % Footer rule
+\setlength{\footskip}{40pt} % Increase footer space
+\fancyfoot[L]{\footnotesize\textbf{TechCorp Solutions}}
+\fancyfoot[R]{\footnotesize Page \thepage\ of \pageref{LastPage}}
+
+\fancyfoot[C]{\parbox{0.8\textwidth}{\centering\tiny This invoice is confidential. Please remit payment within 30 days.}}
+ 
+
+% Company header
+% Company Header Component
+% Usage: component('header_company', company_name='My Company', address='123 Main St', phone='555-1234', email='info@company.com', logo_path='logo.png')
+
+\begin{minipage}[t]{0.6\textwidth}
+    \raggedright
+    
+    {\LARGE \textbf{TechCorp Solutions}} \\[0.3cm]
+    
+    123 Business Drive\\Suite 100\\Tech City, TC 12345 \\
+    
+    
+    Phone: (555) 123-4567 \\
+    
+    
+    Email: billing@techcorp.com \\
+    
+\end{minipage}
+
+\begin{minipage}[t]{0.35\textwidth}
+    \raggedleft
+    \textbf{Date:} January 15, 2024
+\end{minipage}
+
+\vspace{1cm} 
+
+% Invoice title
+\begin{center}
+    {\LARGE \textbf{INVOICE}}
+\end{center}
+
+\vspace{0.5cm}
+
+% Invoice details
+\begin{tabular}{ll}
+    \textbf{Invoice Number:} & INV-2024-001 \\
+    \textbf{Due Date:} & February 15, 2024 \\
+\end{tabular}
+
+\vspace{0.5cm}
+
+% Client information
+\textbf{Bill To:}
+% Contact Info Component
+% Usage: component('contact_info', name='John Doe', company='ABC Corp', address='123 Main St', phone='555-1234', email='john@example.com')
+
+\begin{tabular}{@{}l@{}}
+    
+    \textbf{John Smith} \\
+    
+    
+    Smith Enterprises \\
+    
+    
+    456 Client Street\\Business Park\\Client City, CC 67890 \\
+    
+    
+    
+    Email: john@smithenterprises.com \\
+    
+\end{tabular} 
+
+\vspace{1cm}
+
+% Invoice items
+\section{Items}
+% Error rendering component table_professional: 'builtin_function_or_method' object is not iterable
+
+\vspace{0.5cm}
+
+% Total
+\begin{flushright}
+    \begin{tabular}{lr}
+        \textbf{Subtotal:} & \$13,750.00 \\
+        \textbf{Tax:} & \$1,237.50 \\
+        \hline
+        \textbf{Total:} & \$14,987.50 \\
+    \end{tabular}
+\end{flushright}
+
+\vspace{1cm}
+
+% Payment terms
+% Section Box Component
+% Usage: component('section_box', title='Important Note', content='This is important information.', color='blue')
+
+\begin{tcolorbox}[
+    colback=blue!5!white,
+    colframe=blue!75!black,
+    title=Payment Terms,
+    fonttitle=\bfseries
+]
+Payment is due within 30 days. Please include invoice number with payment.
+\end{tcolorbox} 
+
+\end{document} 

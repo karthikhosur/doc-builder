@@ -1,0 +1,39 @@
+% Professional Company Header with Logo Component
+% Usage: component('header_company_logo', company_name='Company Name', address='Address', cin='CIN Number', phone='Phone', website='Website', logo_path='logo.png', date='Date')
+
+% Header with adjustbox for precise alignment
+\noindent
+\adjustbox{valign=T}{\begin{minipage}{0.3\textwidth}
+\BLOCK{if logo_path}
+\includegraphics[width=\linewidth,height=3.5cm,keepaspectratio]{\VAR{logo_path}}
+\BLOCK{else}
+\rule{\linewidth}{1.8cm}
+\BLOCK{endif}
+\end{minipage}}%
+\hfill%
+\adjustbox{valign=T}{\begin{minipage}{0.65\textwidth}
+\raggedleft
+\textbf{\normalsize \VAR{company_name}}\\[0.1cm]
+\small
+\BLOCK{if address}
+\VAR{address}\\[0.1cm]
+\BLOCK{endif}
+\BLOCK{if cin}
+CIN: \VAR{cin}\\[0.08cm]
+\BLOCK{endif}
+\BLOCK{if phone}
+Tel: \VAR{phone}\\[0.08cm]
+\BLOCK{endif}
+\BLOCK{if website}
+\VAR{website}\\[0.08cm]
+\BLOCK{endif}
+\BLOCK{if date}
+\vspace{0.15cm}
+\textbf{Date: \VAR{date}}
+\BLOCK{endif}
+\end{minipage}}
+
+% Professional separator line
+\vspace{0.1cm}
+\noindent\hrulefill
+\vspace{0.2cm}

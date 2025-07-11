@@ -1,0 +1,57 @@
+{
+  "company": {
+    "name": "ManpowerGroup Services India Pvt Ltd.",
+    "address": "Metro Pillar Number 98, Vatika City Point, 6th Floor,\\\\Mehrauli-Gurgaon Rd, Sector 25,\\\\Gurugram, Haryana 122002",
+    "cin": "U74910DL1997PTC085591",
+    "phone": "+91 – 124 - 6795400",
+    "website": "www.manpowergroup.com",
+    "logo_path": "resources/mpg-logo.jpg",
+    "footer_text": ""
+  },
+  "candidate": {
+    "name": "Sarah Johnson",
+    "address": "456 Residential Lane\\\\Apartment 2B\\\\Mountain View, CA 94041",
+    "email": "sarah.johnson@email.com"
+  },
+  "position": {
+    "title": "Senior Software Engineer",
+    "department": "Engineering",
+    "supervisor": "Michael Chen, Engineering Manager",
+    "start_date": "February 15, 2024",
+    "location": "Hybrid (3 days in office, 2 days remote)",
+    "employment_type": "Full-time, Exempt"
+  },
+  "compensation": {
+    "salary": 1450000,
+    "pay_frequency": "Monthly",
+    "bonus": "Performance-based annual bonus up to 20% of base salary",
+    "equity": "Stock option grant as per company equity program",
+    "benefits": "Medical, dental, vision insurance, Provident Fund, life insurance, group medical insurance",
+    "vacation": "21 days paid vacation plus company holidays and personal days"
+  },
+  "terms": [
+    "This offer is contingent upon successful completion of background check and verification of your eligibility to work in India.",
+    "Your employment with ManpowerGroup Services India Pvt Ltd. will be governed by the terms of employment as per Indian labour laws and company policies.",
+    "You will be required to sign our standard Confidentiality and Invention Assignment Agreement as a condition of employment.",
+    "This position requires compliance with our code of conduct and all company policies as outlined in the employee handbook.",
+    "You agree to dedicate your full professional time and attention to your duties at ManpowerGroup Services India Pvt Ltd. during your employment.",
+    "The employment is subject to satisfactory medical examination and verification of documents."
+  ],
+  "offer": {
+    "date": "January 20, 2024",
+    "next_steps": "Please review this offer carefully. We understand this is an important decision and encourage you to take the time you need. We would appreciate your response by January 27, 2024.",
+    "acceptance_instructions": [
+      "Sign and return this offer letter",
+      "Complete and return the attached employment forms",
+      "Provide necessary documents for verification",
+      "Schedule your first day with HR at hr@manpowergroup.com",
+      "Confirm your start date and any questions about onboarding"
+    ]
+  },
+  "hr": {
+    "name": "Priya Sharma",
+    "title": "Senior Manager - Human Resources",
+    "email": "priya.sharma@manpowergroup.com",
+    "phone": "+91 – 124 - 6795400"
+  }
+} 

@@ -1,0 +1,26 @@
+% Company Header Component
+% Usage: component('header_company', company_name='My Company', address='123 Main St', phone='555-1234', email='info@company.com', logo_path='logo.png')
+
+\begin{minipage}[t]{0.6\textwidth}
+    \raggedright
+    \BLOCK{if logo_path}
+    \includegraphics[width=3cm]{\VAR{logo_path}} \\[0.5cm]
+    \BLOCK{endif}
+    {\LARGE \textbf{\VAR{company_name}}} \\[0.3cm]
+    \BLOCK{if address}
+    \VAR{address} \\
+    \BLOCK{endif}
+    \BLOCK{if phone}
+    Phone: \VAR{phone} \\
+    \BLOCK{endif}
+    \BLOCK{if email}
+    Email: \VAR{email} \\
+    \BLOCK{endif}
+\end{minipage}
+\BLOCK{if date}
+\begin{minipage}[t]{0.35\textwidth}
+    \raggedleft
+    \textbf{Date:} \VAR{date}
+\end{minipage}
+\BLOCK{endif}
+\vspace{1cm} 

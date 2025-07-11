@@ -1,0 +1,17 @@
+% Professional Table Component
+% Usage: component('table_professional', headers=['Item', 'Quantity', 'Price'], rows=[['Product A', '2', '$10.00']], title='Invoice Items')
+
+\begin{table}[h]
+    \centering
+    \renewcommand{\arraystretch}{1.2}
+    \begin{tabular}{\BLOCK{for header in headers}c\BLOCK{if not loop.last}|\BLOCK{endif}\BLOCK{endfor}}
+        \toprule
+        \BLOCK{for header in headers}\textbf{\VAR{header}} \BLOCK{if not loop.last}&\BLOCK{endif}\BLOCK{endfor} \\
+        \midrule
+        \BLOCK{for row in rows}
+        \BLOCK{for cell in row}\VAR{cell} \BLOCK{if not loop.last}&\BLOCK{endif}\BLOCK{endfor} \\
+        \BLOCK{endfor}
+        \bottomrule
+    \end{tabular}
+    \BLOCK{if title}\caption{\VAR{title}}\BLOCK{endif}
+\end{table} 

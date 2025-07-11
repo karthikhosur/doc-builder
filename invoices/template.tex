@@ -1,0 +1,84 @@
+\documentclass[a4paper,11pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[a4paper,top=1cm,bottom=2cm,left=1.5cm,right=1.5cm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Arial}
+\usepackage{booktabs}
+\usepackage{tcolorbox}
+\usepackage{graphicx}
+\usepackage{lastpage}
+\usepackage{fancyhdr}
+
+\begin{document}
+
+% Setup footer on all pages
+\VAR{component('setup_footer', 
+    company_name=company.name,
+    footer_text=company.footer_text
+)}
+
+% Company header
+\VAR{component('header_company', 
+    company_name=company.name,
+    address=company.address,
+    phone=company.phone,
+    email=company.email,
+    date=invoice.date
+)}
+
+% Invoice title
+\begin{center}
+    {\LARGE \textbf{INVOICE}}
+\end{center}
+
+\vspace{0.5cm}
+
+% Invoice details
+\begin{tabular}{ll}
+    \textbf{Invoice Number:} & \VAR{invoice.number} \\
+    \textbf{Due Date:} & \VAR{invoice.due_date} \\
+\end{tabular}
+
+\vspace{0.5cm}
+
+% Client information
+\textbf{Bill To:}
+\VAR{component('contact_info', 
+    name=client.name,
+    company=client.company,
+    address=client.address,
+    email=client.email
+)}
+
+\vspace{1cm}
+
+% Invoice items
+\section{Items}
+\VAR{component('table_professional', 
+    headers=['Description', 'Quantity', 'Unit Price', 'Amount'],
+    rows=invoice.items,
+    title='Invoice Items'
+)}
+
+\vspace{0.5cm}
+
+% Total
+\begin{flushright}
+    \begin{tabular}{lr}
+        \textbf{Subtotal:} & \VAR{invoice.subtotal | currency} \\
+        \textbf{Tax:} & \VAR{invoice.tax | currency} \\
+        \hline
+        \textbf{Total:} & \VAR{invoice.total | currency} \\
+    \end{tabular}
+\end{flushright}
+
+\vspace{1cm}
+
+% Payment terms
+\VAR{component('section_box', 
+    title='Payment Terms',
+    content=invoice.terms,
+    color='blue'
+)}
+
+\end{document} 

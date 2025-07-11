@@ -1,0 +1,27 @@
+% Signature Block Component
+% Usage: component('signature_block', name='John Doe', title='Manager', signature_image='signature.png', date='2024-01-01')
+
+\vspace{2cm}
+\begin{minipage}[t]{0.45\textwidth}
+    \raggedright
+    \textbf{Signature:} \\[0.5cm]
+    \BLOCK{if signature_image}
+    \includegraphics[height=2cm]{\VAR{signature_image}} \\
+    \BLOCK{else}
+    \rule{5cm}{0.5pt} \\[0.3cm]
+    \BLOCK{endif}
+    \VAR{name} \\
+    \BLOCK{if title}
+    \VAR{title} \\
+    \BLOCK{endif}
+\end{minipage}
+\hfill
+\begin{minipage}[t]{0.45\textwidth}
+    \raggedleft
+    \textbf{Date:} \\[0.5cm]
+    \BLOCK{if date}
+    \VAR{date}
+    \BLOCK{else}
+    \rule{3cm}{0.5pt}
+    \BLOCK{endif}
+\end{minipage} 
