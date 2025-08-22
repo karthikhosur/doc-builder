@@ -12,149 +12,94 @@
 \usepackage{tikz}
 \usepackage{lastpage}
 \usepackage{fancyhdr}
+\usepackage{xcolor}
+\usepackage{colortbl}
 
 \begin{document}
 
 % Setup footer on all pages
-\VAR{component('setup_footer', 
-    company_name=company.name,
-    footer_text=company.footer_text
-)}
+\VAR{component('setup_footer', company_name=company_name, footer_text=footer_text)}
 
 % Company header with logo
-\VAR{component('header_company_logo', 
-    company_name=company.name,
-    address=company.address,
-    cin=company.cin,
-    phone=company.phone,
-    website=company.website,
-    logo_path=company.logo_path,
-    date=offer.date
-)}
+\VAR{component('header_company_logo', company_name=company_name, address=address, cin=cin, phone=phone, website=website, logo_path=logo_path, date=date)}
 
-% Candidate information
-\VAR{component('contact_info', 
-    name=candidate.name,
-    address=candidate.address,
-    email=candidate.email
-)}
+% Basic Information
+\textbf{Date:} \VAR{date}
 
-\vspace{0.2cm}
+\vspace{0.3cm}
 
-% Subject line
-\textbf{Subject: Job Offer - \VAR{position.title}}
+\textbf{Name:} \VAR{candidate_name}\\
+\textbf{Location:} \VAR{work_location}
 
-\vspace{0.4cm}
+\vspace{0.3cm}
+
+\textbf{Subject:} \VAR{subject}
+
+\vspace{0.5cm}
 
 % Salutation
-Dear \VAR{candidate.name},
+Dear \VAR{candidate_name},
 
-\vspace{0.4cm}
+\vspace{0.3cm}
 
-% Opening paragraph
-We are pleased to offer you the position of \textbf{\VAR{position.title}} in our \VAR{position.department} department at \VAR{company.name}. We were impressed with your qualifications and believe you will be a valuable addition to our team.
+% Main content
+\VAR{opening_message}
 
-\vspace{0.4cm}
+\vspace{0.3cm}
 
-% Position details section
-\VAR{component('section_box', 
-    title='Position Details',
-    content='',
-    color='blue'
-)}
+With reference to your appointment with \VAR{company_name}, we have pleasure in offering you the position of \textbf{\VAR{position_title}} at \VAR{client_name}. In this regard you will be based at \VAR{work_location}. The detail of the offer is as follow.
 
-\begin{itemize}[leftmargin=20pt]
-    \item \textbf{Position:} \VAR{position.title}
-    \item \textbf{Department:} \VAR{position.department}
-    \item \textbf{Reporting to:} \VAR{position.supervisor}
-    \item \textbf{Start Date:} \VAR{position.start_date}
-    \item \textbf{Work Location:} \VAR{position.location}
-    \item \textbf{Employment Type:} \VAR{position.employment_type}
-\end{itemize}
+\vspace{0.5cm}
 
-\vspace{0.4cm}
+% Contract details table
+\begin{tabular}{lll}
+Start date of Assignment & : & \VAR{start_date} \\
+End date of Assignment & : & \VAR{end_date} \\
+CTC & : & \VAR{ctc_currency} \VAR{ctc_amount} \\
+\end{tabular}
 
-% Compensation section
-\VAR{component('section_box', 
-    title='Compensation \& Benefits',
-    content='',
-    color='green'
-)}
-
-\begin{itemize}[leftmargin=20pt]
-    \item \textbf{Annual Salary:} \VAR{compensation.salary | currency}
-    \item \textbf{Pay Frequency:} \VAR{compensation.pay_frequency}
-    \BLOCK{if compensation.bonus}
-    \item \textbf{Annual Bonus:} \VAR{compensation.bonus}
-    \BLOCK{endif}
-    \BLOCK{if compensation.equity}
-    \item \textbf{Equity:} \VAR{compensation.equity}
-    \BLOCK{endif}
-    \item \textbf{Benefits:} \VAR{compensation.benefits}
-    \BLOCK{if compensation.vacation}
-    \item \textbf{Vacation:} \VAR{compensation.vacation}
-    \BLOCK{endif}
-\end{itemize}
-
-\vspace{0.4cm}
+\vspace{0.5cm}
 
 % Terms and conditions
-\section{Terms and Conditions}
+\VAR{terms_and_conditions}
 
-\BLOCK{for term in terms}
-\VAR{term}
+\vspace{0.3cm}
 
-\vspace{0.25cm}
-\BLOCK{endfor}
+\VAR{tax_notice}
 
-\vspace{0.4cm}
+\vspace{0.5cm}
 
-% Next steps
-\VAR{component('section_box', 
-    title='Next Steps',
-    content=offer.next_steps,
-    color='orange'
-)}
+\VAR{acceptance_instructions}
 
-\vspace{0.4cm}
+\vspace{0.5cm}
 
-% Acceptance instructions
-\textbf{To accept this offer:}
-\VAR{component('numbered_list', 
-    items=offer.acceptance_instructions
-)}
+\VAR{company_name}
 
-\vspace{0.4cm}
+% Authorized signatory
+\VAR{component('signature', name=authorized_signatory_name, title=authorized_signatory_title, signature_type=authorized_signature_type, signature_content=authorized_signature_content, position='left')}
 
-% Closing
-We are excited about the possibility of you joining our team and look forward to your positive response. If you have any questions regarding this offer, please don't hesitate to contact me.
+\vspace{2cm}
 
-\vspace{0.4cm}
+% Accepted by section
+\begin{flushright}
+\textit{Accepted By}
 
-Sincerely,
+\vspace{2cm}
 
-% Signature block
-\VAR{component('signature_block', 
-    name=hr.name,
-    title=hr.title,
-    date=offer.date
-)}
+\rule{6cm}{0.5pt}\\
+\VAR{accepted_by_label}
+\end{flushright}
 
-\vspace{0.4cm}
+\newpage
 
-% Acceptance section
-\hrule
-\vspace{0.4cm}
+% Annexure
+\begin{center}
+\textbf{Annexure}
+\end{center}
 
-\textbf{OFFER ACCEPTANCE}
+\vspace{0.5cm}
 
-I, \VAR{candidate.name}, accept the above offer of employment with \VAR{company.name} under the terms and conditions stated.
-
-\vspace{1.2cm}
-
-\begin{tabular}{ll}
-\rule{6cm}{0.5pt} & \rule{3cm}{0.5pt} \\
-Candidate Signature & Date \\
-\end{tabular}
+% Salary structure table
+\VAR{component('table', headers=salary_table_headers, rows=salary_table_rows, style='basic', width='full', caption='', align='center', grid=true)}
 
 \end{document} 

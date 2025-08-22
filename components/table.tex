@@ -1,0 +1,66 @@
+% Generic Table Component
+% Usage: component('table', headers=['Header1', 'Header2'], rows=[['Row1Col1', 'Row1Col2'], ['Row2Col1', 'Row2Col2']], 
+%         style='basic|professional|striped', width='full|auto', caption='Table Caption', align='left|center|right', grid=true|false)
+
+\BLOCK{if caption}
+\begin{table}[h]
+\centering
+\caption{\VAR{caption}}
+\BLOCK{endif}
+
+\BLOCK{if width == 'full'}
+\begin{center}
+\begin{tabular*}{\textwidth}{@{\extracolsep{\fill}}\BLOCK{for i in range(headers|length)}\BLOCK{if grid}|\BLOCK{endif}\BLOCK{if align == 'center'}c\BLOCK{elif align == 'right'}r\BLOCK{else}l\BLOCK{endif}\BLOCK{endfor}\BLOCK{if grid}|\BLOCK{endif}@{}}
+\BLOCK{else}
+\begin{center}
+\begin{tabular}{\BLOCK{if grid}|\BLOCK{endif}\BLOCK{for i in range(headers|length)}\BLOCK{if align == 'center'}c\BLOCK{elif align == 'right'}r\BLOCK{else}l\BLOCK{endif}\BLOCK{if grid}|\BLOCK{endif}\BLOCK{endfor}}
+\BLOCK{endif}
+
+\BLOCK{if grid}
+\hline
+\BLOCK{elif style == 'professional'}
+\toprule
+\BLOCK{elif style == 'basic'}
+\hline
+\BLOCK{endif}
+
+\BLOCK{if headers}
+\BLOCK{for header in headers}
+\textbf{\VAR{header}}\BLOCK{if not loop.last} & \BLOCK{endif}
+\BLOCK{endfor} \\
+\BLOCK{if grid}
+\hline
+\BLOCK{elif style == 'professional'}
+\midrule
+\BLOCK{elif style == 'basic'}
+\hline
+\BLOCK{endif}
+\BLOCK{endif}
+
+\BLOCK{for row in rows}
+\BLOCK{for cell in row}
+\VAR{cell}\BLOCK{if not loop.last} & \BLOCK{endif}
+\BLOCK{endfor} \\
+\BLOCK{if grid}
+\hline
+\BLOCK{endif}
+\BLOCK{endfor}
+
+\BLOCK{if not grid}
+\BLOCK{if style == 'professional'}
+\bottomrule
+\BLOCK{elif style == 'basic'}
+\hline
+\BLOCK{endif}
+\BLOCK{endif}
+
+\BLOCK{if width == 'full'}
+\end{tabular*}
+\BLOCK{else}
+\end{tabular}
+\BLOCK{endif}
+\end{center}
+
+\BLOCK{if caption}
+\end{table}
+\BLOCK{endif} 

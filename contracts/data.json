@@ -1,0 +1,56 @@
+{
+  "company": {
+    "name": "TechCorp Solutions Inc.",
+    "address": "123 Business Avenue\\\\Suite 200\\\\Tech City, TC 12345",
+    "phone": "(555) 123-4567",
+    "email": "legal@techcorp.com",
+    "website": "www.techcorp.com",
+    "logo_path": "",
+    "footer_text": "This contract is confidential and legally binding. Please review all terms carefully.",
+    "authorized_signatory": "Sarah Johnson",
+    "signatory_title": "Chief Executive Officer"
+  },
+  "client": {
+    "name": "Innovation Enterprises LLC",
+    "contact_person": "Michael Chen",
+    "address": "456 Innovation Drive\\\\Business Park\\\\Innovation City, IC 67890",
+    "email": "michael.chen@innovationenterprises.com",
+    "phone": "(555) 987-6543",
+    "authorized_signatory": "Michael Chen",
+    "signatory_title": "Chief Technology Officer"
+  },
+  "contract": {
+    "number": "CON-2024-001",
+    "date": "January 15, 2024",
+    "effective_date": "February 1, 2024",
+    "expiry_date": "January 31, 2025",
+    "services_description": "TechCorp Solutions will provide comprehensive software development services including web application development, database design, and ongoing maintenance and support for the client's e-commerce platform.",
+    "service_items": [
+      ["Web Development", "Custom e-commerce platform development", "1", "15000.00", "15000.00"],
+      ["Database Design", "MySQL database architecture and optimization", "1", "5000.00", "5000.00"],
+      ["UI/UX Design", "Responsive design and user experience optimization", "1", "8000.00", "8000.00"],
+      ["Testing and QA", "Comprehensive testing and quality assurance", "1", "4000.00", "4000.00"],
+      ["Project Management", "Agile project management and coordination", "12 months", "2000.00", "24000.00"],
+      ["Maintenance", "Ongoing maintenance and support", "12 months", "1500.00", "18000.00"]
+    ],
+    "total_value": 74000.00,
+    "payment_schedule": "50% upfront, 25% at project midpoint, 25% upon completion",
+    "payment_method": "Bank transfer or certified check",
+    "terms_and_conditions": [
+      "All work will be completed according to the agreed timeline and specifications",
+      "Intellectual property rights will transfer to the client upon final payment",
+      "Confidentiality of all project information is maintained throughout the contract",
+      "Changes to project scope require written approval and may affect pricing",
+      "Payment is due within 30 days of invoice date",
+      "Late payments may result in suspension of services",
+      "Either party may terminate this agreement with 30 days written notice",
+      "Disputes will be resolved through mediation before legal action"
+    ],
+    "special_clauses": [
+      "Force majeure clause for unforeseen circumstances",
+      "Non-compete agreement for 12 months post-contract",
+      "Data backup and recovery procedures",
+      "Service level agreement (SLA) with 99.9% uptime guarantee"
+    ]
+  }
+}

@@ -12,6 +12,8 @@
 \usepackage{tikz}
 \usepackage{lastpage}
 \usepackage{fancyhdr}
+\usepackage{xcolor}
+\usepackage{colortbl}
 
 \begin{document}
 
@@ -27,6 +29,8 @@
 \setlength{\footskip}{40pt} % Increase footer space
 \fancyfoot[L]{\footnotesize\textbf{ManpowerGroup Services India Pvt Ltd.}}
 \fancyfoot[R]{\footnotesize Page \thepage\ of \pageref{LastPage}}
+
+\fancyfoot[C]{\parbox{0.8\textwidth}{\centering\tiny This document is confidential and intended solely for the use of the individual or entity to whom it is addressed.}}
  
 
 % Company header with logo
@@ -68,209 +72,430 @@ www.manpowergroup.com\\[0.08cm]
 \noindent\hrulefill
 \vspace{0.2cm}
 
-% Candidate information
-% Contact Info Component
-% Usage: component('contact_info', name='John Doe', company='ABC Corp', address='123 Main St', phone='555-1234', email='john@example.com')
+% Basic Information
+\textbf{Date:} January 20, 2024
 
-\begin{tabular}{@{}l@{}}
-    
-    \textbf{Sarah Johnson} \\
-    
-    
-    
-    456 Residential Lane\\Apartment 2B\\Mountain View, CA 94041 \\
-    
-    
-    
-    Email: sarah.johnson@email.com \\
-    
-\end{tabular} 
+\vspace{0.3cm}
 
-\vspace{0.2cm}
+\textbf{Name:} John Doe\\
+\textbf{Location:} Gurgaon
 
-% Subject line
-\textbf{Subject: Job Offer - Senior Software Engineer}
+\vspace{0.3cm}
 
-\vspace{0.4cm}
+\textbf{Subject:} OFFER FOR FIXED TERM CONTRACT
+
+\vspace{0.5cm}
 
 % Salutation
-Dear Sarah Johnson,
+Dear John Doe,
 
-\vspace{0.4cm}
+\vspace{0.3cm}
 
-% Opening paragraph
-We are pleased to offer you the position of \textbf{Senior Software Engineer} in our Engineering department at ManpowerGroup Services India Pvt Ltd.. We were impressed with your qualifications and believe you will be a valuable addition to our team.
+% Main content
+Congratulations on your new assignment with Manpower services.
 
-\vspace{0.4cm}
+\vspace{0.3cm}
 
-% Position details section
-% Section Box Component
-% Usage: component('section_box', title='Important Note', content='This is important information.', color='blue')
+With reference to your appointment with ManpowerGroup Services India Pvt Ltd., we have pleasure in offering you the position of \textbf{Senior Software Engineer} at ABC Technologies. In this regard you will be based at Gurgaon. The detail of the offer is as follow.
 
-\begin{tcolorbox}[
-    colback=blue!5!white,
-    colframe=blue!75!black,
-    title=Position Details,
-    fonttitle=\bfseries
-]
+\vspace{0.5cm}
 
-\end{tcolorbox} 
+% Contract details table
+\begin{tabular}{lll}
+Start date of Assignment & : & February 1, 2024 \\
+End date of Assignment & : & January 31, 2025 \\
+CTC & : & INR 12,00,000 \\
+\end{tabular}
 
-\begin{itemize}[leftmargin=20pt]
-    \item \textbf{Position:} Senior Software Engineer
-    \item \textbf{Department:} Engineering
-    \item \textbf{Reporting to:} Michael Chen, Engineering Manager
-    \item \textbf{Start Date:} February 15, 2024
-    \item \textbf{Work Location:} Hybrid (3 days in office, 2 days remote)
-    \item \textbf{Employment Type:} Full-time, Exempt
-\end{itemize}
-
-\vspace{0.4cm}
-
-% Compensation section
-% Section Box Component
-% Usage: component('section_box', title='Important Note', content='This is important information.', color='blue')
-
-\begin{tcolorbox}[
-    colback=green!5!white,
-    colframe=green!75!black,
-    title=Compensation \& Benefits,
-    fonttitle=\bfseries
-]
-
-\end{tcolorbox} 
-
-\begin{itemize}[leftmargin=20pt]
-    \item \textbf{Annual Salary:} \$1,450,000.00
-    \item \textbf{Pay Frequency:} Monthly
-    
-    \item \textbf{Annual Bonus:} Performance-based annual bonus up to 20% of base salary
-    
-    
-    \item \textbf{Equity:} Stock option grant as per company equity program
-    
-    \item \textbf{Benefits:} Medical, dental, vision insurance, Provident Fund, life insurance, group medical insurance
-    
-    \item \textbf{Vacation:} 21 days paid vacation plus company holidays and personal days
-    
-\end{itemize}
-
-\vspace{0.4cm}
+\vspace{0.5cm}
 
 % Terms and conditions
-\section{Terms and Conditions}
+Any statutory dues like PF, ESI, Bonus etc, if applicable, will be Paid / Deducted as per law.\\\\All taxes will be deducted as applicable by law.
+
+\vspace{0.3cm}
+
+All taxes will be deducted as applicable by law.
+
+\vspace{0.5cm}
+
+If you wish to accept this offer, kindly send the accepted copy of the same along with a copy of your accepted resignation letter or relieving letter (if applicable). In case the signed acceptance and required documents are not received by Manpower within 7 days of the offer date, Manpower at their discretion reserve their right to treat this offer as withdrawn automatically without further notice.
+
+\vspace{0.5cm}
+
+ManpowerGroup Services India Pvt Ltd.
+
+% Authorized signatory
+% Generic Signature Component
+% Usage: component('signature', name='John Doe', title='Manager', signature_type='text|image', signature_content='Signature text or image path', date='2024-01-01', position='left|right|center')
+
+\vspace{1cm}
+
+\begin{flushleft}
 
 
-This offer is contingent upon successful completion of background check and verification of your eligibility to work in India.
-
-\vspace{0.25cm}
-
-Your employment with ManpowerGroup Services India Pvt Ltd. will be governed by the terms of employment as per Indian labour laws and company policies.
-
-\vspace{0.25cm}
-
-You will be required to sign our standard Confidentiality and Invention Assignment Agreement as a condition of employment.
-
-\vspace{0.25cm}
-
-This position requires compliance with our code of conduct and all company policies as outlined in the employee handbook.
-
-\vspace{0.25cm}
-
-You agree to dedicate your full professional time and attention to your duties at ManpowerGroup Services India Pvt Ltd. during your employment.
-
-\vspace{0.25cm}
-
-The employment is subject to satisfactory medical examination and verification of documents.
-
-\vspace{0.25cm}
+\textbf{Ravi Kumar}\\[0.3cm]
 
 
-\vspace{0.4cm}
 
-% Next steps
-% Section Box Component
-% Usage: component('section_box', title='Important Note', content='This is important information.', color='blue')
+\textbf{Ravi Kumar}\\
 
-\begin{tcolorbox}[
-    colback=orange!5!white,
-    colframe=orange!75!black,
-    title=Next Steps,
-    fonttitle=\bfseries
-]
-Please review this offer carefully. We understand this is an important decision and encourage you to take the time you need. We would appreciate your response by January 27, 2024.
-\end{tcolorbox} 
 
-\vspace{0.4cm}
 
-% Acceptance instructions
-\textbf{To accept this offer:}
-% Numbered List Component
-% Usage: component('numbered_list', items=['First step', 'Second step', 'Third step'])
- 
-\begin{enumerate}
-    
-    \item Sign and return this offer letter
-    
-    \item Complete and return the attached employment forms
-    
-    \item Provide necessary documents for verification
-    
-    \item Schedule your first day with HR at hr@manpowergroup.com
-    
-    \item Confirm your start date and any questions about onboarding
-    
-\end{enumerate} 
+Authorized Signatory\\
 
-\vspace{0.4cm}
 
-% Closing
-We are excited about the possibility of you joining our team and look forward to your positive response. If you have any questions regarding this offer, please don't hesitate to contact me.
 
-\vspace{0.4cm}
 
-Sincerely,
-
-% Signature block
-% Signature Block Component
-% Usage: component('signature_block', name='John Doe', title='Manager', signature_image='signature.png', date='2024-01-01')
+\end{flushleft} 
 
 \vspace{2cm}
-\begin{minipage}[t]{0.45\textwidth}
-    \raggedright
-    \textbf{Signature:} \\[0.5cm]
-    
-    \rule{5cm}{0.5pt} \\[0.3cm]
-    
-    Priya Sharma \\
-    
-    Senior Manager - Human Resources \\
-    
-\end{minipage}
-\hfill
-\begin{minipage}[t]{0.45\textwidth}
-    \raggedleft
-    \textbf{Date:} \\[0.5cm]
-    
-    January 20, 2024
-    
-\end{minipage} 
 
-\vspace{0.4cm}
+% Accepted by section
+\begin{flushright}
+\textit{Accepted By}
 
-% Acceptance section
-\hrule
-\vspace{0.4cm}
+\vspace{2cm}
 
-\textbf{OFFER ACCEPTANCE}
+\rule{6cm}{0.5pt}\\
+Offer Accepted Signature
+\end{flushright}
 
-I, Sarah Johnson, accept the above offer of employment with ManpowerGroup Services India Pvt Ltd. under the terms and conditions stated.
+\newpage
 
-\vspace{1.2cm}
+% Annexure
+\begin{center}
+\textbf{Annexure}
+\end{center}
 
-\begin{tabular}{ll}
-\rule{6cm}{0.5pt} & \rule{3cm}{0.5pt} \\
-Candidate Signature & Date \\
-\end{tabular}
+\vspace{0.5cm}
+
+% Salary structure table
+% Generic Table Component
+% Usage: component('table', headers=['Header1', 'Header2'], rows=[['Row1Col1', 'Row1Col2'], ['Row2Col1', 'Row2Col2']], 
+%         style='basic|professional|striped', width='full|auto', caption='Table Caption', align='left|center|right', grid=true|false)
+
+
+
+
+\begin{center}
+\begin{tabular*}{\textwidth}{@{\extracolsep{\fill}}|c|c|c|c|c|@{}}
+
+
+
+\hline
+
+
+
+
+\textbf{Salary Structure} & 
+
+\textbf{Particulars} & 
+
+\textbf{\%} & 
+
+\textbf{Gurgaon} & 
+
+\textbf{Amount (Rs.)}
+ \\
+
+\hline
+
+
+
+
+
+ & 
+
+ & 
+
+ & 
+
+ & 
+
+NEW SS
+ \\
+
+\hline
+
+
+
+Basic & 
+
+Provide & 
+
+ & 
+
+ & 
+
+45,000
+ \\
+
+\hline
+
+
+
+HRA & 
+
+50.00\% & 
+
+ & 
+
+ & 
+
+22,500
+ \\
+
+\hline
+
+
+
+Bonus & 
+
+Annually & 
+
+ & 
+
+ & 
+
+3,750
+ \\
+
+\hline
+
+
+
+Other Allowance & 
+
+76.66\% & 
+
+ & 
+
+ & 
+
+28,750
+ \\
+
+\hline
+
+
+
+EPF Contribution & 
+
+Yes & 
+
+ & 
+
+ & 
+
+5,400
+ \\
+
+\hline
+
+
+
+PF Admin Charges & 
+
+ & 
+
+ & 
+
+ & 
+
+1,200
+ \\
+
+\hline
+
+
+
+EDLI Charges & 
+
+ & 
+
+ & 
+
+ & 
+
+650
+ \\
+
+\hline
+
+
+
+LWF Contribution & 
+
+ & 
+
+ & 
+
+ & 
+
+120
+ \\
+
+\hline
+
+
+
+Insurance Charges & 
+
+Yes & 
+
+ & 
+
+ & 
+
+0
+ \\
+
+\hline
+
+
+
+TOTAL CTC & 
+
+ & 
+
+ & 
+
+ & 
+
+1,07,370
+ \\
+
+\hline
+
+
+
+ & 
+
+ & 
+
+ & 
+
+ & 
+
+
+ \\
+
+\hline
+
+
+
+for Employee & 
+
+ & 
+
+ & 
+
+ & 
+
+
+ \\
+
+\hline
+
+
+
+Gross Salary & 
+
+ & 
+
+ & 
+
+ & 
+
+1,00,000
+ \\
+
+\hline
+
+
+
+EPF Deduction & 
+
+ & 
+
+ & 
+
+ & 
+
+2,238
+ \\
+
+\hline
+
+
+
+LWF Deduction & 
+
+ & 
+
+ & 
+
+ & 
+
+34
+ \\
+
+\hline
+
+
+
+Take Home Salary (Pre -PT) & 
+
+ & 
+
+ & 
+
+ & 
+
+97,728
+ \\
+
+\hline
+
+
+
+P.Tax as applicable in state & 
+
+ & 
+
+ & 
+
+ & 
+
+2,500
+ \\
+
+\hline
+
+
+
+TAKE HOME & 
+
+ & 
+
+ & 
+
+ & 
+
+95,228
+ \\
+
+\hline
+
+
+
+
+
+
+\end{tabular*}
+
+\end{center}
+
+ 
 
 \end{document} 

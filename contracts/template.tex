@@ -1,0 +1,144 @@
+\documentclass[a4paper,11pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[a4paper,top=1cm,bottom=2cm,left=1.5cm,right=1.5cm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Arial}
+\usepackage{booktabs}
+\usepackage{tcolorbox}
+\usepackage{graphicx}
+\usepackage{enumitem}
+\usepackage{adjustbox}
+\usepackage{array}
+\usepackage{tikz}
+\usepackage{lastpage}
+\usepackage{fancyhdr}
+\usepackage{xcolor}
+\usepackage{colortbl}
+
+\begin{document}
+
+% Setup footer on all pages
+\VAR{component('setup_footer', 
+    company_name=company.name,
+    footer_text=company.footer_text
+)}
+
+% Company header with logo
+\VAR{component('header_company_logo', 
+    company_name=company.name,
+    address=company.address,
+    phone=company.phone,
+    website=company.website,
+    logo_path=company.logo_path,
+    date=contract.date
+)}
+
+% Contract title
+\begin{center}
+    {\LARGE \textbf{SERVICE AGREEMENT}}
+\end{center}
+
+\vspace{0.5cm}
+
+% Contract details
+\begin{tabular}{ll}
+    \textbf{Contract Number:} & \VAR{contract.number} \\
+    \textbf{Effective Date:} & \VAR{contract.effective_date} \\
+    \textbf{Expiry Date:} & \VAR{contract.expiry_date} \\
+\end{tabular}
+
+\vspace{0.5cm}
+
+% Parties involved
+\textbf{BETWEEN:} \VAR{company.name} (hereinafter referred to as the "Service Provider")
+
+\textbf{AND:} \VAR{client.name} (hereinafter referred to as the "Client")
+
+\vspace{0.5cm}
+
+% Client information
+\textbf{Client Details:}
+\VAR{component('contact_info', 
+    name=client.contact_person,
+    company=client.name,
+    address=client.address,
+    email=client.email,
+    phone=client.phone
+)}
+
+\vspace{1cm}
+
+% Service description
+\section{1. Services}
+\VAR{component('section_box', 
+    title='Scope of Work',
+    content=contract.services_description,
+    color='blue'
+)}
+
+\vspace{0.5cm}
+
+% Service details table
+\VAR{component('table_professional', 
+    headers=['Service Item', 'Description', 'Quantity', 'Rate', 'Total'],
+    rows=contract.service_items,
+    title='Service Breakdown'
+)}
+
+\vspace{0.5cm}
+
+% Payment terms
+\section{2. Payment Terms}
+\begin{itemize}
+    \item \textbf{Total Contract Value:} \$74,000.00
+    \item \textbf{Payment Schedule:} \VAR{contract.payment_schedule}
+    \item \textbf{Payment Method:} \VAR{contract.payment_method}
+\end{itemize}
+
+\vspace{0.5cm}
+
+% Terms and conditions
+\section{3. Terms and Conditions}
+\VAR{component('numbered_list', items=contract.terms_and_conditions)}
+
+\vspace{0.5cm}
+
+% Special clauses
+\BLOCK{if contract.special_clauses}
+\section{4. Special Clauses}
+\VAR{component('bullet_list', items=contract.special_clauses)}
+\BLOCK{endif}
+
+\vspace{1cm}
+
+% Signatures
+\begin{minipage}[t]{0.45\textwidth}
+\textbf{Service Provider:}\\
+\VAR{company.name}
+
+\vspace{2cm}
+
+\rule{6cm}{0.5pt}\\
+\VAR{company.authorized_signatory}\\
+\VAR{company.signatory_title}
+\end{minipage}
+\hfill
+\begin{minipage}[t]{0.45\textwidth}
+\textbf{Client:}\\
+\VAR{client.name}
+
+\vspace{2cm}
+
+\rule{6cm}{0.5pt}\\
+\VAR{client.authorized_signatory}\\
+\VAR{client.signatory_title}
+\end{minipage}
+
+\vspace{1cm}
+
+% Contract footer
+\begin{center}
+\textit{This agreement is effective as of \VAR{contract.effective_date} and shall remain in force until \VAR{contract.expiry_date}.}
+\end{center}
+
+\end{document}

@@ -1,0 +1,29 @@
+% Generic Signature Component
+% Usage: component('signature', name='John Doe', title='Manager', signature_type='text|image', signature_content='Signature text or image path', date='2024-01-01', position='left|right|center')
+
+\vspace{1cm}
+
+\begin{flushleft}
+
+\BLOCK{if signature_type == 'image' and signature_content}
+\includegraphics[width=4cm,height=2cm,keepaspectratio]{\VAR{signature_content}}\\[0.3cm]
+\BLOCK{elif signature_type == 'text' and signature_content}
+\textbf{\VAR{signature_content}}\\[0.3cm]
+\BLOCK{else}
+\rule{5cm}{0.5pt}\\[0.3cm]
+\BLOCK{endif}
+
+\BLOCK{if name}
+\textbf{\VAR{name}}\\
+\BLOCK{endif}
+
+\BLOCK{if title}
+\VAR{title}\\
+\BLOCK{endif}
+
+\BLOCK{if date}
+\vspace{0.2cm}
+Date: \VAR{date}
+\BLOCK{endif}
+
+\end{flushleft} 

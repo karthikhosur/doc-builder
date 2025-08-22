@@ -1,0 +1,256 @@
+\documentclass[a4paper,11pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[a4paper,top=1cm,bottom=2cm,left=1.5cm,right=1.5cm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Arial}
+\usepackage{booktabs}
+\usepackage{tcolorbox}
+\usepackage{graphicx}
+\usepackage{enumitem}
+\usepackage{adjustbox}
+\usepackage{array}
+\usepackage{tikz}
+\usepackage{lastpage}
+\usepackage{fancyhdr}
+\usepackage{xcolor}
+\usepackage{colortbl}
+
+\begin{document}
+
+% Setup footer on all pages
+% Footer Setup Component
+% Usage: component('setup_footer', company_name='Company Name', footer_text='Optional footer text')
+
+% Setup fancy headers and footers with better spacing
+\pagestyle{fancy}
+\fancyhf{} % Clear all headers and footers
+\renewcommand{\headrulewidth}{0pt} % No header rule
+\renewcommand{\footrulewidth}{0.4pt} % Footer rule
+\setlength{\footskip}{40pt} % Increase footer space
+\fancyfoot[L]{\footnotesize\textbf{TechCorp Solutions Inc.}}
+\fancyfoot[R]{\footnotesize Page \thepage\ of \pageref{LastPage}}
+
+\fancyfoot[C]{\parbox{0.8\textwidth}{\centering\tiny This contract is confidential and legally binding. Please review all terms carefully.}}
+ 
+
+% Company header with logo
+% Professional Company Header with Logo Component
+% Usage: component('header_company_logo', company_name='Company Name', address='Address', cin='CIN Number', phone='Phone', website='Website', logo_path='logo.png', date='Date')
+
+% Header with adjustbox for precise alignment
+\noindent
+\adjustbox{valign=T}{\begin{minipage}{0.3\textwidth}
+
+\rule{\linewidth}{1.8cm}
+
+\end{minipage}}%
+\hfill%
+\adjustbox{valign=T}{\begin{minipage}{0.65\textwidth}
+\raggedleft
+\textbf{\normalsize TechCorp Solutions Inc.}\\[0.1cm]
+\small
+
+123 Business Avenue\\Suite 200\\Tech City, TC 12345\\[0.1cm]
+
+
+
+Tel: (555) 123-4567\\[0.08cm]
+
+
+www.techcorp.com\\[0.08cm]
+
+
+\vspace{0.15cm}
+\textbf{Date: January 15, 2024}
+
+\end{minipage}}
+
+% Professional separator line
+\vspace{0.1cm}
+\noindent\hrulefill
+\vspace{0.2cm}
+
+% Contract title
+\begin{center}
+    {\LARGE \textbf{SERVICE AGREEMENT}}
+\end{center}
+
+\vspace{0.5cm}
+
+% Contract details
+\begin{tabular}{ll}
+    \textbf{Contract Number:} & CON-2024-001 \\
+    \textbf{Effective Date:} & February 1, 2024 \\
+    \textbf{Expiry Date:} & January 31, 2025 \\
+\end{tabular}
+
+\vspace{0.5cm}
+
+% Parties involved
+\textbf{BETWEEN:} TechCorp Solutions Inc. (hereinafter referred to as the "Service Provider")
+
+\textbf{AND:} Innovation Enterprises LLC (hereinafter referred to as the "Client")
+
+\vspace{0.5cm}
+
+% Client information
+\textbf{Client Details:}
+% Contact Info Component
+% Usage: component('contact_info', name='John Doe', company='ABC Corp', address='123 Main St', phone='555-1234', email='john@example.com')
+
+\begin{tabular}{@{}l@{}}
+    
+    \textbf{Michael Chen} \\
+    
+    
+    Innovation Enterprises LLC \\
+    
+    
+    456 Innovation Drive\\Business Park\\Innovation City, IC 67890 \\
+    
+    
+    Phone: (555) 987-6543 \\
+    
+    
+    Email: michael.chen@innovationenterprises.com \\
+    
+\end{tabular} 
+
+\vspace{1cm}
+
+% Service description
+\section{1. Services}
+% Section Box Component
+% Usage: component('section_box', title='Important Note', content='This is important information.', color='blue')
+
+\begin{tcolorbox}[
+    colback=blue!5!white,
+    colframe=blue!75!black,
+    title=Scope of Work,
+    fonttitle=\bfseries
+]
+TechCorp Solutions will provide comprehensive software development services including web application development, database design, and ongoing maintenance and support for the client's e-commerce platform.
+\end{tcolorbox} 
+
+\vspace{0.5cm}
+
+% Service details table
+% Professional Table Component
+% Usage: component('table_professional', headers=['Item', 'Quantity', 'Price'], rows=[['Product A', '2', '$10.00']], title='Invoice Items')
+
+\begin{table}[h]
+    \centering
+    \renewcommand{\arraystretch}{1.2}
+    \begin{tabular}{c|c|c|c|c}
+        \toprule
+        \textbf{Service Item} &\textbf{Description} &\textbf{Quantity} &\textbf{Rate} &\textbf{Total}  \\
+        \midrule
+        
+        Web Development &Custom e-commerce platform development &1 &15000.00 &15000.00  \\
+        
+        Database Design &MySQL database architecture and optimization &1 &5000.00 &5000.00  \\
+        
+        UI/UX Design &Responsive design and user experience optimization &1 &8000.00 &8000.00  \\
+        
+        Testing and QA &Comprehensive testing and quality assurance &1 &4000.00 &4000.00  \\
+        
+        Project Management &Agile project management and coordination &12 months &2000.00 &24000.00  \\
+        
+        Maintenance &Ongoing maintenance and support &12 months &1500.00 &18000.00  \\
+        
+        \bottomrule
+    \end{tabular}
+    \caption{Service Breakdown}
+\end{table} 
+
+\vspace{0.5cm}
+
+% Payment terms
+\section{2. Payment Terms}
+\begin{itemize}
+    \item \textbf{Total Contract Value:} \$74,000.00
+    \item \textbf{Payment Schedule:} 50% upfront, 25% at project midpoint, 25% upon completion
+    \item \textbf{Payment Method:} Bank transfer or certified check
+\end{itemize}
+
+\vspace{0.5cm}
+
+% Terms and conditions
+\section{3. Terms and Conditions}
+% Numbered List Component
+% Usage: component('numbered_list', items=['First step', 'Second step', 'Third step'])
+ 
+\begin{enumerate}
+    
+    \item All work will be completed according to the agreed timeline and specifications
+    
+    \item Intellectual property rights will transfer to the client upon final payment
+    
+    \item Confidentiality of all project information is maintained throughout the contract
+    
+    \item Changes to project scope require written approval and may affect pricing
+    
+    \item Payment is due within 30 days of invoice date
+    
+    \item Late payments may result in suspension of services
+    
+    \item Either party may terminate this agreement with 30 days written notice
+    
+    \item Disputes will be resolved through mediation before legal action
+    
+\end{enumerate} 
+
+\vspace{0.5cm}
+
+% Special clauses
+
+\section{4. Special Clauses}
+% Bullet List Component
+% Usage: component('bullet_list', items=['Item 1', 'Item 2', 'Item 3'])
+ 
+\begin{itemize}
+    
+    \item Force majeure clause for unforeseen circumstances
+    
+    \item Non-compete agreement for 12 months post-contract
+    
+    \item Data backup and recovery procedures
+    
+    \item Service level agreement (SLA) with 99.9% uptime guarantee
+    
+\end{itemize} 
+
+
+\vspace{1cm}
+
+% Signatures
+\begin{minipage}[t]{0.45\textwidth}
+\textbf{Service Provider:}\\
+TechCorp Solutions Inc.
+
+\vspace{2cm}
+
+\rule{6cm}{0.5pt}\\
+Sarah Johnson\\
+Chief Executive Officer
+\end{minipage}
+\hfill
+\begin{minipage}[t]{0.45\textwidth}
+\textbf{Client:}\\
+Innovation Enterprises LLC
+
+\vspace{2cm}
+
+\rule{6cm}{0.5pt}\\
+Michael Chen\\
+Chief Technology Officer
+\end{minipage}
+
+\vspace{1cm}
+
+% Contract footer
+\begin{center}
+\textit{This agreement is effective as of February 1, 2024 and shall remain in force until January 31, 2025.}
+\end{center}
+
+\end{document}

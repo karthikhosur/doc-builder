@@ -1,330 +1,182 @@
-# LaTeX Component System Guide
+# Component Library Guide
 
-## Overview
-
-This LaTeX generator includes a reusable component system that allows you to create and use modular LaTeX code snippets. Components are stored in the `components/` directory and can be used in any template.
+This document explains how to use the reusable LaTeX components available in the `components/` folder.
 
 ## Available Components
 
-### 1. `table_basic`
-Basic table with borders.
+### 1. Generic Signature Component (`signature.tex`)
+A flexible signature component that can handle text or image signatures.
 
 **Usage:**
-```latex
-\VAR{component('table_basic', 
-    headers=['Col1', 'Col2', 'Col3'],
-    rows=[['A', 'B', 'C'], ['D', 'E', 'F']],
-    caption='Table Caption'
-)}
 ```
-
-### 2. `table_professional`
-Professional table with booktabs styling.
-
-**Usage:**
-```latex
-\VAR{component('table_professional', 
-    headers=['Item', 'Quantity', 'Price'],
-    rows=[['Product A', '2', '$10.00']],
-    title='Invoice Items'
-)}
-```
-
-### 3. `header_company`
-Company header with logo and contact info.
-
-**Usage:**
-```latex
-\VAR{component('header_company', 
-    company_name='My Company',
-    address='123 Main St\\nCity, State 12345',
-    phone='555-1234',
-    email='info@company.com',
-    logo_path='logo.png',
-    date='2024-01-01'
-)}
-```
-
-### 4. `header_company_logo`
-Professional document header with logo on left and detailed company information on right.
-
-**Usage:**
-```latex
-\VAR{component('header_company_logo', 
-    company_name='ManpowerGroup Services India Pvt Ltd.',
-    address='Metro Pillar Number 98, Vatika City Point, 6th Floor,\\\\Mehrauli-Gurgaon Rd, Sector 25,\\\\Gurugram, Haryana 122002',
-    cin='U74910DL1997PTC085591',
-    phone='+91 – 124 - 6795400',
-    website='www.manpowergroup.com',
-    logo_path='resources/logo.png',
-    date='2024-01-01'
-)}
-```
-
-**Features:**
-- Professional 2-column table layout with precise alignment control
-- Logo positioned on the left (30% width) with compact height (3.5cm)
-- Company details on the right (65% width) with readable typography
-- Tabular format ensures consistent top-level alignment
-- Supports CIN (Corporate Identification Number)
-- Website field for company URL
-- Professional formatting with optimized spacing and alignment
-- Includes horizontal rule separator for document structure
-- Optimized for A4 paper size with minimal top padding
-- Uses standard document header formatting conventions
-- Responsive logo sizing with `keepaspectratio`
-- Enhanced readability: normal size company name, small contact details
-- Compact vertical spacing for efficient use of page space
-
-### 5. `setup_footer`
-Configures page footers that appear on all pages using the fancyhdr package.
-
-**Usage:**
-```latex
-\VAR{component('setup_footer', 
-    company_name='ManpowerGroup Services India Pvt Ltd.',
-    footer_text='This document is confidential and intended solely for the use of the individual or entity to whom it is addressed.'
-)}
-```
-
-**Features:**
-- Sets up footers for all pages using fancyhdr package
-- Horizontal rule separator at the top of footer
-- Company name positioned on the left side
-- Page numbers "Page X of Y" on the right side
-- Optional centered footer text in tiny font
-- Professional spacing and typography
-- Requires `lastpage` package for page counting
-- Requires `fancyhdr` package for page setup
-- Must be called early in document (after \begin{document})
-
-### 6. `footer_company`
-Single-page footer component (deprecated - use setup_footer instead).
-
-**Usage:**
-```latex
-\VAR{component('footer_company', 
-    company_name='ManpowerGroup Services India Pvt Ltd.',
-    footer_text='This document is confidential and intended solely for the use of the individual or entity to whom it is addressed.'
-)}
-```
-
-**Note:** This component only appears on the last page. For footers on all pages, use `setup_footer` instead.
-
-### 7. `section_box`
-Colored box for highlighting content.
-
-**Usage:**
-```latex
-\VAR{component('section_box', 
-    title='Important Note',
-    content='This is important information.',
-    color='blue'
-)}
-```
-
-### 8. `signature_block`
-Signature block with name, title, and date.
-
-**Usage:**
-```latex
-\VAR{component('signature_block', 
-    name='John Doe',
-    title='Manager',
-    signature_image='signature.png',
-    date='2024-01-01'
-)}
-```
-
-### 9. `bullet_list`
-Bullet point list.
-
-**Usage:**
-```latex
-\VAR{component('bullet_list', 
-    items=['Item 1', 'Item 2', 'Item 3']
-)}
-```
-
-### 10. `numbered_list`
-Numbered list.
-
-**Usage:**
-```latex
-\VAR{component('numbered_list', 
-    items=['First step', 'Second step', 'Third step']
-)}
-```
-
-### 11. `contact_info`
-Contact information block.
-
-**Usage:**
-```latex
-\VAR{component('contact_info', 
-    name='John Doe',
-    company='ABC Corp',
-    address='123 Main St',
-    phone='555-1234',
-    email='john@example.com'
-)}
-```
-
-## How to Use Components
-
-### In Templates
-
-1. **Basic usage:**
-   ```latex
-   \VAR{component('component_name', param1='value1', param2='value2')}
-   ```
-
-2. **With complex parameters:**
-   ```latex
-   \VAR{component('table_basic', 
-       headers=['Name', 'Age', 'City'],
-       rows=[
-           ['Alice', '25', 'New York'],
-           ['Bob', '30', 'Los Angeles']
-       ]
-   )}
-   ```
-
-### In Python Code
-
-```python
-from latex_generator import LaTeXGenerator
-
-generator = LaTeXGenerator()
-
-# List available components
-components = generator.list_components()
-print(components)
-
-# Use a component directly
-table_latex = generator._get_component('table_basic',
-    headers=['A', 'B'],
-    rows=[['1', '2']]
+component('signature', 
+    name='John Doe', 
+    title='Manager', 
+    signature_type='text|image', 
+    signature_content='Signature text or image path', 
+    date='2024-01-01', 
+    position='left|right|center'
 )
-print(table_latex)
 ```
+
+**Parameters:**
+- `name`: Signatory's name
+- `title`: Signatory's title/position
+- `signature_type`: Either 'text' or 'image'
+- `signature_content`: For text: the signature text, for image: path to signature image
+- `date`: Date of signature (optional)
+- `position`: Alignment - 'left', 'right', or 'center' (optional, defaults to left)
+
+### 2. Generic Table Component (`table.tex`)
+A flexible table component that can handle various configurations.
+
+**Usage:**
+```
+component('table', 
+    headers=['Header1', 'Header2'], 
+    rows=[['Row1Col1', 'Row1Col2'], ['Row2Col1', 'Row2Col2']], 
+    style='basic|professional|striped', 
+    width='full|auto', 
+    caption='Table Caption', 
+    align='left|center|right',
+    grid=true|false
+)
+```
+
+**Parameters:**
+- `headers`: List of table headers
+- `rows`: List of lists containing table data
+- `style`: Table style - 'basic', 'professional', or 'striped' (optional)
+- `width`: Table width - 'full' (full page width) or 'auto' (content width) (optional)
+- `caption`: Table caption (optional)
+- `align`: Column alignment - 'left', 'center', or 'right' (optional, defaults to left)
+- `grid`: Enable/disable all table grid lines - true or false (optional, defaults to style-based)
+
+**Grid Parameter:**
+- When `grid=true`: Shows all horizontal and vertical lines regardless of style
+- When `grid=false`: Uses style-based line rendering (professional uses booktabs, basic uses simple lines)
+- Full width tables (`width='full'`) automatically span the entire page width and are centered
+
+### 3. Header with Company Logo (`header_company_logo.tex`)
+Professional header with company logo and information.
+
+**Usage:**
+```
+component('header_company_logo', 
+    company_name='Company Name', 
+    address='Address', 
+    cin='CIN Number', 
+    phone='Phone', 
+    website='Website', 
+    logo_path='logo.png', 
+    date='Date'
+)
+```
+
+### 4. Footer Setup (`setup_footer.tex`)
+Sets up page footers with company information and page numbers.
+
+**Usage:**
+```
+component('setup_footer', 
+    company_name='Company Name', 
+    footer_text='Optional footer text'
+)
+```
+
+### 5. Section Box (`section_box.tex`)
+Creates colored boxes for highlighting sections.
+
+**Usage:**
+```
+component('section_box', 
+    title='Section Title', 
+    content='Section content', 
+    color='blue|green|orange|red'
+)
+```
+
+### 6. Lists (`numbered_list.tex`, `bullet_list.tex`)
+Creates numbered or bulleted lists.
+
+**Usage:**
+```
+component('numbered_list', items=['Item 1', 'Item 2', 'Item 3'])
+component('bullet_list', items=['Item 1', 'Item 2', 'Item 3'])
+```
+
+### 7. Contact Information (`contact_info.tex`)
+Formats contact information in a clean layout.
+
+**Usage:**
+```
+component('contact_info', 
+    name='John Doe', 
+    company='Company Name', 
+    address='Address', 
+    phone='Phone', 
+    email='Email'
+)
+```
+
+## Example Usage in Templates
+
+### Offer Letter Example
+```latex
+% Header
+\VAR{component('header_company_logo', 
+    company_name=company_name, 
+    address=address, 
+    cin=cin, 
+    phone=phone, 
+    website=website, 
+    logo_path=logo_path, 
+    date=date
+)}
+
+% Main content
+\textbf{Date:} \VAR{date}
+
+% Signature
+\VAR{component('signature', 
+    name=signatory_name, 
+    title=signatory_title, 
+    signature_type='text', 
+    signature_content=signatory_name
+)}
+
+% Full-width table with all grids
+\VAR{component('table', 
+    headers=['Column 1', 'Column 2'], 
+    rows=[['Data 1', 'Data 2'], ['Data 3', 'Data 4']], 
+    style='basic',
+    width='full',
+    align='center',
+    grid=true
+)}
+```
+
+## Best Practices
+
+1. **Use Generic Components**: Instead of creating specific components for each use case, use the generic `signature` and `table` components with different parameters.
+
+2. **Escape Special Characters**: Remember to escape LaTeX special characters like `%` as `\%` in your data.
+
+3. **Consistent Styling**: Use the same style parameters across your document for consistency.
+
+4. **Flexible Data Structure**: Structure your JSON data to match the component parameters for easy reuse.
+
+5. **Table Formatting**: 
+   - Use `width='full'` for tables that should span the entire page
+   - Use `grid=true` for tables that need complete grid lines
+   - Use `align='center'` for better visual appearance in full-width tables
 
 ## Creating New Components
 
-### Method 1: Create a .tex file
+When creating new components:
 
-1. Create a new file in the `components/` directory (e.g., `my_component.tex`)
-2. Add your LaTeX code with Jinja2 variables:
-
-```latex
-% My Custom Component
-% Usage: component('my_component', title='My Title', content='My content')
-
-\begin{center}
-    \textbf{\VAR{title}}
-    \vspace{0.5cm}
-    
-    \VAR{content}
-\end{center}
-```
-
-### Method 2: Add programmatically
-
-```python
-generator = LaTeXGenerator()
-
-component_latex = """
-% Custom Footer
-\\vfill
-\\begin{center}
-    \\small \\VAR{text}
-\\end{center}
-"""
-
-generator.add_component('my_footer', component_latex)
-```
-
-## Component Guidelines
-
-### 1. Component Structure
-- Start with a comment describing the component
-- Include usage examples
-- Use descriptive parameter names
-- Handle optional parameters with `\BLOCK{if parameter}`
-
-### 2. Parameter Handling
-```latex
-% Required parameter
-\VAR{title}
-
-% Optional parameter
-\BLOCK{if subtitle}
-    \VAR{subtitle}
-\BLOCK{endif}
-
-% Parameter with default
-\VAR{color or 'blue'}
-```
-
-### 3. Loops and Lists
-```latex
-% Loop through items
-\BLOCK{for item in items}
-    \item \VAR{item}
-\BLOCK{endfor}
-
-% Loop with conditions
-\BLOCK{for row in rows}
-    \BLOCK{for cell in row}
-        \VAR{cell} \BLOCK{if not loop.last}&\BLOCK{endif}
-    \BLOCK{endfor} \\
-\BLOCK{endfor}
-```
-
-### 4. Required Packages
-If your component needs specific LaTeX packages, document them in the component file:
-
-```latex
-% Required packages: booktabs, array, xcolor
-% Usage: component('my_component', ...)
-```
-
-## Example: Complete Document
-
-```latex
-\documentclass{article}
-\usepackage[utf8]{inputenc}
-\usepackage{graphicx}
-\usepackage{booktabs}
-\usepackage{tcolorbox}
-
-\begin{document}
-
-\VAR{component('header_company_logo', 
-    company_name='Tech Corp',
-    address='123 Tech St',
-    phone='555-TECH',
-    website='www.techcorp.com',
-    logo_path='resources/logo.png'
-)}
-
-\section{Introduction}
-
-\VAR{component('section_box', 
-    title='Welcome',
-    content='This document demonstrates our component system.'
-)}
-
-\section{Features}
-
-\VAR{component('bullet_list', 
-    items=['Easy to use', 'Reusable', 'Customizable']
-)}
-
-\VAR{component('signature_block', 
-    name='John Doe',
-    title='CEO'
-)}
-
-\end{document}
-```
+1. Make them generic and reusable
+2. Use clear parameter names
+3. Include usage examples in comments
+4. Handle optional parameters gracefully
+5. Test with various data inputs
